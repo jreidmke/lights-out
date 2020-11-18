@@ -38,9 +38,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
     for(let i = 0; i < nrows; i++) {
       let colArr = [];
       for(let i = 0; i < ncols; i++) {
-        let rand = Math.random();
-        let bool = rand >= chanceLightStartsOn ? true : false;
-        colArr.push(bool);
+        colArr.push(Math.random() > chanceLightStartsOn ? true : false);
       }
       initialBoard.push(colArr);
     }
@@ -50,6 +48,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 
   function hasWon() {
     // TODO: check the board in state to determine whether the player has won.
+    //so what we need to do is spread that whole array out and make sure the entire thing is true useing filter
   }
 
   function flipCellsAround(coord) {
