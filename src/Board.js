@@ -48,7 +48,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 
   function hasWon() {
     // TODO: check the board in state to determine whether the player has won.
-    return (board.flat().filter(x => x == false)).length === 0;
+    return (board.flat().filter(x => x == true)).length === 0;
   }
 
   function flipCellsAround(coord) {
@@ -78,6 +78,9 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 
   // if the game is won, just show a winning msg & render nothing else
   const winningMsg = 'Congratulations. You have won the game!';
+  if(hasWon()) {
+    return <div><h1>{winningMsg}</h1></div>
+  }
   // TODO
 
   // make table board
@@ -108,7 +111,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 Board.defaultProps = {
   nrows: 5,
   ncols: 5,
-  chanceLightStartsOn: .2
+  chanceLightStartsOn: 1
 };
 
 export default Board;
