@@ -109,8 +109,8 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 }
 
 Board.defaultProps = {
-  nrows: 5,
-  ncols: 5,
+  nrows: 30,
+  ncols: 30,
   chanceLightStartsOn: .2
 };
 
