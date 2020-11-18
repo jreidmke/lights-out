@@ -34,10 +34,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
   function createBoard() {
     let initialBoard = [];
     // TODO: create array-of-arrays of true/false values
-    //ok, ncols = length of each array
-    //nrows = how many arrays
-    //we populate each array with T/F's. determined from a Math.random() call.
-    //there are clever ways to do this but i don't care right now
+
     for(let i = 0; i < nrows; i++) {
       let colArr = [];
       for(let i = 0; i < ncols; i++) {
