@@ -49,6 +49,9 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
   function hasWon() {
     // TODO: check the board in state to determine whether the player has won.
     //so what we need to do is spread that whole array out and make sure the entire thing is true useing filter
+    let check = (setBoard(board.flat()).filter(x => x === false).length) === 0;
+    console.log(check);
+    return (setBoard(board.flat()).filter(x => x === false).length) === 0;
   }
 
   function flipCellsAround(coord) {
