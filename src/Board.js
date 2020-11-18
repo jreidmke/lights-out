@@ -37,7 +37,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 
     for(let i = 0; i < nrows; i++) {
       let colArr = [];
-      for(let i = 0; i < ncols; i++) {
+      for(let j = 0; j < ncols; j++) {
         colArr.push(Math.random() > chanceLightStartsOn ? true : false);
       }
       initialBoard.push(colArr);
@@ -67,25 +67,41 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
       let newBoard = [...board];
       // TODO: in the copy, flip this cell and the cells around it
       flipCell(y, x, newBoard);
-      flipCell(y, x - 1, boardCopy);
-      flipCell(y - 1, x, boardCopy);
-      flipCell(y + 1, x, boardCopy);
-      flipCell(y, x + 1, boardCopy);
+      flipCell(y, x - 1, newBoard);
+      flipCell(y - 1, x, newBoard);
+      flipCell(y + 1, x, newBoard);
+      flipCell(y, x + 1, newBoard);
       // TODO: return the copy
       return newBoard;
     });
   }
 
   // if the game is won, just show a winning msg & render nothing else
-
+  const winningMsg = 'Congratulations. You have won the game!';
   // TODO
 
   // make table board
+  let htmlBoard = [];
+
+  for(let i = 0; i < nrows; i++) {
+    let colArr = [];
+    for(let j = 0; j < ncols; j++) {
+      colArr.push(
+        <Cell
+        isLit={board[i][j]}
+        flipCellsAroundMe={() => flipCellsAround(`${i}-${j}`)}
+        />
+      )
+    }
+    htmlBoard.push(<tr>{colArr}</tr>);
+  }
 
   // TODO
 
   return(
-    <Cell/>
+    <table className="Board">
+      <tbody>{htmlBoard}</tbody>
+    </table>
   )
 }
 
@@ -93,6 +109,6 @@ Board.defaultProps = {
   nrows: 5,
   ncols: 5,
   chanceLightStartsOn: .2
-}
+};
 
 export default Board;
