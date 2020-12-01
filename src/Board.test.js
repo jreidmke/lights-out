@@ -17,3 +17,11 @@ it("displays winning text when game over", function() {
     const h1 = getByText('Congratulations. You have won the game!');
     expect(h1).toBeInTheDocument();
 })
+
+describe("cell click", function() {
+    it("toggles classes for cell", function() {
+        const { getAllByTestId } = render(<Board nrows={3} ncols={3} chanceLightStartsOn={.9} />);
+        const cells = getAllByTestId('cell');
+        console.log(cells);
+    })
+})

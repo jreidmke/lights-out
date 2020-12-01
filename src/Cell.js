@@ -18,7 +18,7 @@ import { uuid } from 'uuidv4';
 
 function Cell({ flipCellsAroundMe, isLit }) {
   const classes = `Cell ${isLit ? "Cell-lit" : "Cell"}`;
-  return <td className={classes} onClick={flipCellsAroundMe} data-testid={1} key={uuid()}/>; //cell will be set to class decided above. given onClick event to trigger flipCellsAroundMe.
+  return <td className={classes} onClick={flipCellsAroundMe} data-testid='cell' key={uuid()}/>; //cell will be set to class decided above. given onClick event to trigger flipCellsAroundMe.
 }
 
 export default Cell;
