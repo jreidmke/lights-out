@@ -42,13 +42,12 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
       }
       initialBoard.push(colArr);
     }
-    console.log(initialBoard);
     return initialBoard;
   }
 
   function hasWon() {
     // TODO: check the board in state to determine whether the player has won.
-    return (board.flat().filter(x => x == true)).length === 0;
+    return (board.flat().filter(x => x === true)).length === 0;
   }
 
   function flipCellsAround(coord) {
@@ -109,9 +108,9 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 }
 
 Board.defaultProps = {
-  nrows: 30,
-  ncols: 30,
-  chanceLightStartsOn: .2
+  nrows: 5,
+  ncols: 5,
+  chanceLightStartsOn: .9
 };
 
 export default Board;
