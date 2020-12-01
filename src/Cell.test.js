@@ -17,9 +17,9 @@ it("matches snapshot", function() {
     expect(asFragment()).toMatchSnapshot();
 });
 
-it("flips when clicked on", function() {
-    const { getByTestId } = render(<Cell isLit/>);
-    const td = getByTestId(1)
-    fireEvent.click(td);
-    expect(td).toHaveClass('Cell');
-})
+// it("flips when clicked on", function() {
+//     const { getByTestId } = render(<Cell isLit/>);
+//     const td = getByTestId(1)
+//     fireEvent.click(td);
+//     expect(td).toHaveClass('Cell');
+// })
