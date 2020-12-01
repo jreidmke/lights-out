@@ -8,6 +8,8 @@ function App() {
   return (
     <div className="App">
       <Board />
+
+      <td></td>
     </div>
   );
 }
