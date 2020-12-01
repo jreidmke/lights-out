@@ -20,8 +20,13 @@ it("displays winning text when game over", function() {
 
 describe("cell click", function() {
     it("toggles classes for cell", function() {
-        const { getAllByTestId } = render(<Board nrows={3} ncols={3} chanceLightStartsOn={.9} />);
-        const cells = getAllByTestId('cell');
-        console.log(cells);
+        const { getAllByTestId } = render(<Board nrows={3} ncols={3} chanceLightStartsOn={0} />);
+        const cells = getAllByTestId("cell");
+        cells.forEach(cell => {
+            expect(cell).toHaveClass("Cell")
+        })
+
+        fireEvent.click(cells[4]);
+        expect(cells[4]).toHaveClass('Cell-lit');
     })
 })
